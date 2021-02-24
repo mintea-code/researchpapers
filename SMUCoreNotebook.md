@@ -702,8 +702,8 @@ ggplot(subset(pub_freq, Freq>200), aes(x=subjects, y=Freq, fill=subjects)) +
 -   Certain publication types only be found in **full-text records**:
     **magazine articles** and **working papers**.
 
--   Certain publication types only be found in records without full
-    text: **magazine articles** and **working papers**.
+-   Certain publication types only be found in records **without full
+    text**: **cases** and **conference papers**.
 
 **Package versions**
 
