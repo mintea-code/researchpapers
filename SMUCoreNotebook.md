@@ -706,7 +706,8 @@ ggplot(subset(pub_freq, subjects=="Book Chapter"|
 -   The distribution of publication types across records with full text
     is **more uneven** than that for records with no full text.
 
--   All **cases** are missing full text.
+-   Almost all **cases** are missing full text (3 full-text vs. 245
+    without).
 
 **Package versions**
 
