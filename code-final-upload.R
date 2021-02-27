@@ -405,7 +405,14 @@ pub_freq <- record_cut %>%
   data.frame()
 
 ##generate plot for publication types with counts >200
-ggplot(subset(pub_freq, Freq>200), aes(x=subjects, y=Freq, fill=subjects)) +
+ggplot(subset(pub_freq, subjects=="Book Chapter"|
+                subjects=="Case"|
+                subjects=="Conference Paper"|
+                subjects=="Conference Proceeding Article"|
+                subjects=="Journal Article"|
+                subjects=="Magazine Article"|
+                subjects=="Working Paper"),
+       aes(x=subjects, y=Freq, fill=subjects)) +
   geom_col()+
   scale_y_continuous(labels = scales::number_format(accuracy = 1))+
   labs(title='Distribution of publication types', y="count", x="publication type")+

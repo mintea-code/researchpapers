@@ -686,7 +686,14 @@ pub_freq <- record_cut %>%
   data.frame()
 
 ##generate plot for publication types with counts >200
-ggplot(subset(pub_freq, Freq>200), aes(x=subjects, y=Freq, fill=subjects)) +
+ggplot(subset(pub_freq, subjects=="Book Chapter"|
+                subjects=="Case"|
+                subjects=="Conference Paper"|
+                subjects=="Conference Proceeding Article"|
+                subjects=="Journal Article"|
+                subjects=="Magazine Article"|
+              subjects=="Working Paper"),
+       aes(x=subjects, y=Freq, fill=subjects)) +
   geom_col()+
   scale_y_continuous(labels = scales::number_format(accuracy = 1))+
   labs(title='Distribution of publication types', y="count", x="publication type")+
@@ -694,16 +701,12 @@ ggplot(subset(pub_freq, Freq>200), aes(x=subjects, y=Freq, fill=subjects)) +
   theme(legend.position="none", axis.text.x=element_text(angle=40, hjust=1))
 ```
 
-![](plots/full_pubs.png)
+![](plots/full_pubs_rev.png)
 
 -   The distribution of publication types across records with full text
     is **more uneven** than that for records with no full text.
 
--   Certain publication types only be found in **full-text records**:
-    **magazine articles** and **working papers**.
-
--   Certain publication types only be found in records **without full
-    text**: **cases** and **conference papers**.
+-   All **cases** are missing full text.
 
 **Package versions**
 
